@@ -342,3 +342,17 @@ function backToWelcome() {
 function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
+function resetScore() {
+  // Reset current score
+  score = 0;
+  scoreDisplay.textContent = "Score: 0";
+
+  // Remove high scores from localStorage
+  localStorage.removeItem("islamicQuizHighScores");
+
+  // Update navbar display
+  highScoreDisplay.textContent = "";
+
+  alert("Score and High Scores have been reset!");
+}
+
