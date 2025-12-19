@@ -1,140 +1,230 @@
-/* -------------------------------
-   Global Styles
--------------------------------- */
+/* ------------------------------- Global Styles -------------------------------- */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f6f9;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f4f8; /* light neutral background */
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 
-/* Navbar */
+/* ------------------------------- Navbar -------------------------------- */
 .navbar {
-  background-color: #2c3e50 !important;
+  background-color: #1a4f63 !important; /* deep teal/navy */
 }
-
 .navbar-brand {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: bold;
+  color: #f7f3e9;
+}
+.navbar .btn-warning {
+  background-color: #d9534f;  /* reset score button color */
+  border-color: #d9534f;
+  color: #f7f3e9;
+}
+.navbar .btn-warning:hover {
+  background-color: #c9302c;
+  border-color: #c9302c;
 }
 
-/* Smooth transitions for buttons */
-.btn {
-  transition: all 0.3s ease;
-  border-radius: 30px;
-  padding: 12px 25px;
+/* ------------------------------- Welcome Page -------------------------------- */
+.welcome-banner {
+  max-width: 320px;
+  width: 100%;
+  margin: auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  max-width: 400px;
+  margin: auto;
+}
+
+.category-grid .btn {
   font-weight: 600;
+  padding: 14px 20px;
+  border-radius: 20px;
+  transition: transform 0.2s ease;
 }
 
-.btn:hover {
+.category-grid .btn:hover {
   transform: translateY(-3px);
 }
 
-/* Category Buttons */
-#welcome .btn {
-  border-radius: 25px;
-  padding: 15px 30px;
-  font-size: 1.1rem;
-  margin-top: 15px;
+.btn-outline-primary {
+  color: #1a4f63;
+  border-color: #1a4f63;
+}
+.btn-outline-primary:hover {
+  background-color: #1a4f63;
+  color: #f7f3e9;
 }
 
-/* Quiz Screen */
-#quiz {
-  background: #fff;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  padding: 25px;
-  border-radius: 15px;
+.btn-outline-success {
+  color: #0d6b5c;
+  border-color: #0d6b5c;
+}
+.btn-outline-success:hover {
+  background-color: #0d6b5c;
+  color: #f7f3e9;
 }
 
-/* Question & Answer Buttons */
+.quran-btn {
+  grid-column: 1 / -1;
+  color: #b57b1d;
+  border-color: #b57b1d;
+}
+.quran-btn:hover {
+  background-color: #b57b1d;
+  color: #f7f3e9;
+}
+
+/* ------------------------------- Quiz Page -------------------------------- */
+.quiz-banner img {
+  width: 100%;        /* full width of container */
+  height: auto;       /* maintain aspect ratio */
+  max-height: 250px;  /* adjust for visibility, not too tall */
+  object-fit: cover;  /* crop if needed to fill */
+  border-radius: 15px; 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+
+
+.quiz-card {
+  background: #ffffff;
+  border-radius: 20px;
+  min-height: auto;
+  padding: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+#options {
+  gap: 6px !important;   /* less space between options */
+}
+
 #options .btn {
   text-align: left;
   border-radius: 12px;
-  padding: 12px 20px;
+  padding: 6px 8px;
+  font-weight: 500;
+  font-size: 0.85rem;
 }
 
 .btn.correct {
-  background-color: #28a745 !important;
-  color: white !important;
-  border-color: #28a745 !important;
-  animation: popCorrect 0.5s ease;
+  background-color: #0d6b5c !important; /* teal for correct */
+  color: #f7f3e9 !important;
 }
 
 .btn.wrong {
-  background-color: #dc3545 !important;
-  color: white !important;
-  border-color: #dc3545 !important;
-  animation: shakeWrong 0.5s ease;
+  background-color: #b00020 !important; /* deep red for wrong */
+  color: #f7f3e9 !important;
 }
 
-#explain .alert {
-  margin-top: 10px;
-}
-
-/* Timer styling */
-#timer {
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: #333;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+#explain {
+  margin-top: 6px !important;
+  font-size: 0.8rem;
+  border-radius: 8px;
 }
 
 #progressBar {
-  background-color: #3498db !important;
-}
-
-/* Progress bar smooth animation */
-.progress-bar {
+  height: 6px;
+  background-color: #1a4f63 !important;
   transition: width 0.6s ease;
 }
 
-/* Exit Button */
-#exitBtn {
-  background-color: #e74c3c !important;
-  color: white;
-  border-radius: 12px;
-  padding: 10px 20px;
-  font-size: 1rem;
-}
-
-#exitBtn:hover {
-  background-color: #c0392b !important;
-}
-
-/* Animation */
-@keyframes popCorrect {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-
-@keyframes shakeWrong {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  50% { transform: translateX(5px); }
-  75% { transform: translateX(-5px); }
-  100% { transform: translateX(0); }
-}
-
-/* Results Screen */
-#results h3 {
-  font-size: 1.8rem;
+#timer {
+  font-size: 0.85rem;
   font-weight: bold;
-  color: #333;
+  color: #1a4f63;
 }
 
-#results p {
-  font-size: 1.2rem;
+#exitBtn {
+  border-radius: 12px;
+  padding: 5px 10px;
+  background-color: #b00020;
+  border-color: #b00020;
+  color: #f7f3e9;
+}
+#exitBtn:hover {
+  background-color: #8a0017;
+  border-color: #8a0017;
 }
 
-#highList {
-  font-family: "Courier New", monospace;
-  font-size: 1rem;
-  white-space: pre-wrap;
-  text-align: left;
-  color: #555;
+#nextBtn, #endBtn {
+  padding: 5px 10px;
+  font-size: 0.85rem;
 }
 
-.d-flex {
+/* ------------------------------- Results Page -------------------------------- */
+.results-screen {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  padding: 12px;
+}
+
+.results-screen h3 {
+  color: #1a4f63;
+  font-weight: bold;
+}
+
+.results-screen p {
+  color: #0d6b5c;
+  font-size: 1.1rem;
+}
+
+.results-screen .btn-primary {
+  background-color: #0d6b5c;
+  border-color: #0d6b5c;
+}
+.results-screen .btn-primary:hover {
+  background-color: #0b584b;
+}
+
+.results-screen .btn-secondary {
+  background-color: #b57b1d;
+  border-color: #b57b1d;
+  color: #f7f3e9;
+}
+.results-screen .btn-secondary:hover {
+  background-color: #a06d1a;
+  border-color: #a06d1a;
+}
+
+/* ------------------------------- Responsive -------------------------------- */
+@media (max-width: 576px) {
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quiz-footer {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .quiz-banner img {
+    max-height: 100px;
+  }
+
+  #options .btn {
+    padding: 5px 6px;
+    font-size: 0.8rem;
+  }
+
+  #explain {
+    font-size: 0.75rem;
+  }
+
+  #timer {
+    font-size: 0.8rem;
+  }
+
+  .quiz-card {
+    padding: 8px;
+  }
 }
